@@ -1,6 +1,16 @@
 import React from "react";
-import styled from "styled-components";
 
-export default function Index() {
-  return <div>test</div>
+import Layout from "../layout/Layout";
+import ProfileHeader from "../components/ProfileHeader/ProfileHeader";
+
+function Home() {
+  return (
+    <Layout>
+      <div>
+        <ProfileHeader/>
+      </div>
+    </Layout>
+  );
 }
+
+export default Home;
