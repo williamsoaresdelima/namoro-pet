@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export const InputField = styled.div`
+interface props {
+  contional: boolean,
+  hasError: boolean,
+}
+
+export const InputField = styled.div<props>`
   width: 100%;
-  max-height: 80px;
+  max-height: ${props => props.contional ? 'auto' : '80px'};
   display: flex;
   flex-direction: column;
   
@@ -10,13 +15,13 @@ export const InputField = styled.div`
     font-size: 18px;
     font-weight: bold;
     margin: 0 0 4px 8px ;
-    color: var(--W11);
+    color: ${props => props.hasError ? 'red' : 'var(--W11)'};
   }
 
-  > input {
+  > input, textarea{
     padding: 8px 12px;
     background-color: var(--W3);
-    border: 1px solid var(--W4);
+    border: 1px solid ${props => props.hasError ? 'red' : 'var(--W4)'};
     border-radius: 4px;
 
     :focus {
@@ -27,4 +32,10 @@ export const InputField = styled.div`
     }
   }
 
+  > span {
+    color: red;
+    margin-left: 8px;
+    margin-top: 2px;
+    font-size: 12px;
+  }
 `;

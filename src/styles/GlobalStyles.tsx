@@ -30,4 +30,8 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-size: 16px;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;

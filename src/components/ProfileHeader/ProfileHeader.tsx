@@ -3,30 +3,30 @@ import React from 'react';
 import IProfileHeader from './IProfileHeader';
 import * as S from './style'
 
-function ProfileHeader() {
+function ProfileHeader({ imageURL, title, name, breed, description, ocupation } : IProfileHeader) {
   return (
     <>
       <S.Container>
         <div className="img-container">
           <img
-            src="https://s2.glbimg.com/qsj9O4LxSvKZop_4IaKlAr-4yvk=/e.glbimg.com/og/ed/f/original/2022/01/07/border-collie-pesquisa.jpeg"
+            src={imageURL}
             alt="Perfil"
           />
         </div>
         <div className="content-container">
           <div>
-            <S.Title>@Zhara</S.Title>
-            <S.Breed>Rotweiller</S.Breed>
+            <S.Title>{title}</S.Title>
+            <S.Breed>{breed}</S.Breed>
           </div>
           <div>
-            <S.Name>Zhara</S.Name><S.Divider> • </S.Divider><S.SubName>Mastigadora de Sofás</S.SubName>
+            <S.Name>{name}</S.Name><S.Divider> • </S.Divider><S.SubName>{ocupation}</S.SubName>
           </div>
             <S.Description>
-              Acima de tudo, é fundamental ressaltar que o aumento do diálogo entre os diferentes setores produtivos apresenta tendências no sentido de aprovar a manutenção dos métodos utilizados na avaliação de resultados.
+             {description}
             </S.Description>
         </div>
       <S.DescriptionMobile>
-        Acima de tudo, é fundamental ressaltar que o aumento do diálogo entre os diferentes setores produtivos apresenta tendências no sentido de aprovar a manutenção dos métodos utilizados na avaliação de resultados.
+        {description}
       </S.DescriptionMobile>
       </S.Container>
     </>
