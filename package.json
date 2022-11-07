@@ -13,7 +13,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy:ci": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/username/repo.git"
   },
   "dependencies": {
     "@types/lodash": "^4.14.188",
@@ -23,6 +25,7 @@
     "gatsby": "^4.24.5",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-styled-components": "^5.24.0",
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
