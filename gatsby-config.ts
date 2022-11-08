@@ -9,10 +9,6 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {},
-    },
-    {
-      resolve: 'gatsby-plugin-remove-serviceworker',
-      options: {},
     }
   ],
 }
