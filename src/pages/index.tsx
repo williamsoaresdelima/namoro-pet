@@ -1,33 +1,72 @@
 import React from "react";
+import { graphql, PageProps } from "gatsby";
 
 import Layout from "../layout/Layout";
 import ProfileHeader from "../components/ProfileHeader/ProfileHeader";
 import Feed from "../components/Feed/Feed";
 
-const posts = Array.from({ length: 30 }, (_, index) => ({
-  imageURL : 'https://s2.glbimg.com/qsj9O4LxSvKZop_4IaKlAr-4yvk=/e.glbimg.com/og/ed/f/original/2022/01/07/border-collie-pesquisa.jpeg',
-  title : `titulo ${index}`,
-  link : '#',
-}))
+interface PropsTypes {
+  allMarkdownRemark: {
+    nodes: [
+      frontmatter: {
+        feedTitle: string,
+        feedLink: string,
+        feedImageURL: string
+      }
+    ]
+  }
+  json: {
+    imageURL: string,
+    name: string,
+    ocupation: string,
+    title: string,
+    breed: string,
+    description: string
+  }
+}
 
-function Home() {
+interface frontmatter {
+  feedTitle: string,
+  feedLink: string,
+  feedImageURL: string
+}
+
+function Home({ data } : PageProps<PropsTypes>) {
+  const profileHeader = data.json;
+  const items = data.allMarkdownRemark.nodes.map((item : any) => item.frontmatter);
+
   return (
     <Layout>
       <div>
         <ProfileHeader
-          imageURL=
-            "https://s2.glbimg.com/qsj9O4LxSvKZop_4IaKlAr-4yvk=/e.glbimg.com/og/ed/f/original/2022/01/07/border-collie-pesquisa.jpeg"
-          title="@Zhara"
-          name="Zhara"
-          breed="Rotweiller"
-          ocupation="Mastigadora de Sofás"
-          description=
-            "Acima de tudo, é fundamental ressaltar que o aumento do diálogo entre os diferentes setores produtivos apresenta tendências no sentido de aprovar a manutenção dos métodos utilizados na avaliação de resultados."
+          {...profileHeader}  
         />
       </div>
-      <Feed data={posts} />
+      <Feed data={{...items}} />
     </Layout>
   );
 }
 
 export default Home;
+
+export const pageQuerry = graphql`
+{
+  allMarkdownRemark(sort: {fields: frontmatter___feedImageURL})  {
+    nodes {
+      frontmatter {
+        feedTitle
+        feedLink
+        feedImageURL
+      }
+    }
+  }
+  json {
+    imageURL
+    name
+    ocupation
+    title
+    breed
+    description
+  }
+}
+`

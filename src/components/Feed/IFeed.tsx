@@ -1,7 +1,7 @@
 interface IFeed {
-  imageURL: string,
-  title: string,
-  link: string,
+  feedImageURL: string,
+  feedTitle: string,
+  feedLink: string,
 }
 
 export default IFeed;

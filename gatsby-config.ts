@@ -17,13 +17,20 @@ const config: GatsbyConfig = {
         path: `${__dirname}/data`,
       },
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "posts",
-    //     path: `${__dirname}/posts`,
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/posts`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "feed",
+        path: `${__dirname}/feed`,
+      },
+    },
     {
       resolve: `gatsby-transformer-json`,
       options: {
