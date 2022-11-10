@@ -2,6 +2,7 @@ import React from 'react'
 import { FormikProps, useFormik } from 'formik';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
+import { Link } from 'gatsby'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Schema } from './schema';
@@ -100,8 +101,8 @@ function ContactForm({ setLoading } : IContact) {
         </div>
       </form>
       <div className='links'>
-        <a>Home</a>
-        <a>Contato</a>
+      <Link to="/">Home</Link>
+        <Link to="/">Contato</Link>
       </div>
       <ToastContainer/>
     </S.ContactContainer>

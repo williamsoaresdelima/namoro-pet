@@ -1,5 +1,6 @@
 import React from 'react'
 import FeedItem from './FeedItem/FeedItem'
+import { Link } from 'gatsby'
 
 import IFeed from "./IFeed"
 import * as S from "./style"
@@ -16,9 +17,9 @@ function Feed({ data } : { data : IFeed[] }) {
       {result.map((item, index) => {
         if (item.feedImageURL !== null) {
           return (
-              <a href={item.feedLink} key={index} >
+            <Link to={item.feedLink} key={index} >
               <FeedItem imageURL={item.feedImageURL} title={item.feedTitle} />
-            </a>
+            </Link>
           )
         } 
       })

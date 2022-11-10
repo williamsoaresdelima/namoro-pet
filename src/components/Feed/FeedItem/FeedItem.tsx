@@ -1,4 +1,6 @@
 import React from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+
 import styled from 'styled-components'
 import IFeedItem from './IFeedItem'
 
@@ -6,7 +8,7 @@ function FeedItem({ imageURL, title } : IFeedItem) {
   return (
     <FeedContainer>
       <div className='img-container'>
-        <img src={imageURL} alt={title} />
+        <GatsbyImage image={{ ...imageURL, layout: "fullWidth" }} alt={title} />
       </div>
       <div className='title-container'>
         <span/>

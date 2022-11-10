@@ -1,6 +1,14 @@
+import { IGatsbyImageData } from "gatsby-plugin-image"
+
 export default interface IPost {
-  userName: string,
-  content: string,
-  imageURL: string,
+  authorImage: string,
+  title: string,
+  postAuthor: string,
   date: string,
+  html: string,
+  image: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData
+    }
+  }
 }

@@ -4,6 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://williamsoaresdelima.github.io/namoro-pet`,
   },
+  pathPrefix: '/namoro-pet',
   graphqlTypegen: true,
   plugins: [
     {
@@ -22,13 +23,6 @@ const config: GatsbyConfig = {
       options: {
         name: "posts",
         path: `${__dirname}/posts`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "feed",
-        path: `${__dirname}/feed`,
       },
     },
     {

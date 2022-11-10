@@ -73,4 +73,14 @@ export const Date = styled.div`
 
 export const ContentBody = styled.div`
   font-weight: 400;
+  
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    > h1 {
+      font-size: 20px;
+    }
+  }
 `;

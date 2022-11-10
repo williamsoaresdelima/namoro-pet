@@ -1,4 +1,6 @@
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
 export default interface IFeedItem {
-  imageURL: string,
+  imageURL: IGatsbyImageData,
   title: string,
 }

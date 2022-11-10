@@ -1,5 +1,7 @@
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
 interface IFeed {
-  feedImageURL: string,
+  feedImageURL: IGatsbyImageData,
   feedTitle: string,
   feedLink: string,
 }
