@@ -59,7 +59,7 @@ function Home({ data } : PageProps<any>) {
     ({ frontmatter, fields }: any) => ({
       ...frontmatter,
       feedLink: `/posts/${fields.slug}`,
-      feedImageURL: getImage(frontmatter.image)
+      feedImageURL: frontmatter.image.childImageSharp.gatsbyImageData
     })
   );
   return (
@@ -90,9 +90,7 @@ export const pageQuerry = graphql`
         image {
           childImageSharp {
             gatsbyImageData(
-              formats: [WEBP, JPG]
-              width: 200
-              height: 200
+              formats: [JPG]
               layout: CONSTRAINED
             )
           }

@@ -6,6 +6,7 @@ import IFeed from "./IFeed"
 import * as S from "./style"
 
 function Feed({ data } : { data : IFeed[] }) {
+  console.log(data)
 
   const array = Object.keys(data);
   const result = array.map((key: any) => {
