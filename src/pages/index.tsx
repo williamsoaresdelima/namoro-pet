@@ -1,73 +1,22 @@
 import React from "react";
-import { graphql, HeadProps, PageProps } from "gatsby";
-import { IGatsbyImageData, getImage } from "gatsby-plugin-image";
+import { graphql, PageProps } from "gatsby";
 
 import Layout from "../layout/Layout";
 import ProfileHeader from "../components/ProfileHeader/ProfileHeader";
 import Feed from "../components/Feed/Feed";
 import Pagination from "../components/Pagination/Pagination";
 import MetaHead from "../components/MetaHead/MetaHead";
+import IIndex from "../Interface/IIndex";
 
-interface PropsTypes {
-  allMarkdownRemark: {
-    pageInfo: {
-      totalCount: number,
-      currentPage: number,
-      pageCount: number,
-      hasNextPage: boolean,
-      hasPreviousPage: boolean,
-    },
-    nodes: [
-      fields: {
-        slug: string,
-      },
-      frontmatter: {
-        feedTitle: string,
-        feedLink: string,
-        feedImageURL: string
-        image: {
-          childImageSharp: {
-            gatsbyImageData: IGatsbyImageData
-          }
-        }
-      }
-    ]
-  }
-  json: {
-    imageURL: string,
-    name: string,
-    ocupation: string,
-    title: string,
-    breed: string,
-    description: string
-  }
-}
 
-interface IFrontmatter {
-  frontmatter: [  
-    feedTitle: string,
-    feedLink: string,
-    feedImageURL: string
-  ]
-}
 
-interface INode {
-    fields: {
-      slug: string,
-    },
-    frontmatter: {
-      feedTitle: string,
-      feedLink: string,
-      feedImageURL: string
-    }
-}
-
-function Home({ data } : PageProps<PropsTypes>) {
+function Home({ data } : PageProps<IIndex>) {
   const profileHeader = data.json;
   const pagination = data.allMarkdownRemark.pageInfo;
   const items = data.allMarkdownRemark.nodes.map(
-    ({ frontmatter, fields }: any) => ({
+    ({ frontmatter, fields }) => ({
       ...frontmatter,
+      feedTitle: frontmatter.title,
       feedLink: `/posts/${fields.slug}`,
       feedImageURL: frontmatter.image.childImageSharp.gatsbyImageData
     })
@@ -105,9 +54,7 @@ export const pageQuerry = graphql`
         slug
       }
       frontmatter {
-        feedTitle
-        feedLink
-        feedImageURL
+        title
         image {
           childImageSharp {
             gatsbyImageData(

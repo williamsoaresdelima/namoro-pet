@@ -19,7 +19,6 @@ function FeedItem({ imageURL, title } : IFeedItem) {
 }
 
 const FeedContainer = styled.div`
-  height: calc(100% - 16px);
   .img-container {
     padding: 8px;
     width: calc(100% - 16px);

@@ -1,18 +1,19 @@
 import React from "react";
 import { PageProps, graphql, HeadProps } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 
 import * as S from './style'
-import  Feed  from "../components/Feed/Feed";
-import  Layout  from "../layout/Layout";
+import Feed from "../components/Feed/Feed";
+import Layout from "../layout/Layout";
 import Pagination from "../components/Pagination/Pagination";
 import MetaHead from "../components/MetaHead/MetaHead";
+import IPageFeed from "../Interface/IPageFeed";
 
-export default function FeedPage({ data }: PageProps<QueryProps>) {
-  const pagination = (data as any).allMarkdownRemark.pageInfo;
-  const items = (data as any).allMarkdownRemark.nodes.map(
-    ({ frontmatter, fields }: any) => ({
+export default function FeedPage({ data }: PageProps<IPageFeed>) {
+  const pagination = data.allMarkdownRemark.pageInfo;
+  const items = data.allMarkdownRemark.nodes.map(
+    ({ frontmatter, fields }) => ({
       ...frontmatter,
+      feedTitle: frontmatter.title,
       feedLink: `/posts/${fields.slug}`,
       feedImageURL: frontmatter.image.childImageSharp.gatsbyImageData
     })
@@ -57,9 +58,7 @@ export const pageQuery = graphql`
               )
             }
           }
-          feedTitle
-          feedLink
-          feedImageURL
+          title
         }
         id
       }
@@ -67,35 +66,8 @@ export const pageQuery = graphql`
   }
 `;
 
-interface QueryProps {
-  allMarkdownRemark: {
-    pageInfo: {
-      currentPage: number,
-      pageCount: number,
-      hasNextPage: boolean,
-      hasPreviousPage: boolean
-    }
-    nodes: {
-      fields: {
-        slug: string
-      }
-      frontmatter: {
-        image: {
-          childImageSharp: {
-            gatsbyImageData: IGatsbyImageData
-          }
-        }
-        feedTitle: string,
-        feedLink: string,
-        feedImageURL: string,
-      }
-      id: string
-    }
-  }
-}
-
-export const Head = ({ data }: HeadProps) => {
-  const { currentPage, pageCount } = (data as any).allMarkdownRemark.pageInfo;
+export const Head = ({ data }: HeadProps<IPageFeed>) => {
+  const { currentPage, pageCount } = data.allMarkdownRemark.pageInfo;
   const items = {
     title: `Namoro-Pet | Página ${currentPage} de ${pageCount}`,
     path: `/pages/${currentPage}`,
