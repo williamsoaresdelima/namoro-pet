@@ -44,6 +44,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 460px) {
+    border-radius: 0;
     flex-direction: column;
     
     .img-container {

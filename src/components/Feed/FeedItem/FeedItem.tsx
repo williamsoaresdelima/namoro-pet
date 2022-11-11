@@ -19,13 +19,13 @@ function FeedItem({ imageURL, title } : IFeedItem) {
 }
 
 const FeedContainer = styled.div`
+height: 80%;
   .img-container {
+    height: 100%;
     padding: 8px;
-    width: calc(100% - 16px);
-    height: calc(100% - 16px);
     object-fit: cover;
 
-    >div {
+    > div {
       min-height: 160px;
       width: 100%;
       height: inherit;

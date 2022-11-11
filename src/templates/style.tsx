@@ -9,4 +9,10 @@ export const Container = styled.div`
     margin-top: 20px;
     margin-bottom: -10px;
   }
+
+  @media(max-width: 460px) {
+    > h2 {
+      margin-left: 16px;
+    }
+  }
 `;

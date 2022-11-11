@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 12px;
   margin-top: 24px;
   padding: 8px;
@@ -20,6 +21,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 460px) {
+    border-radius: 0;
     grid-template-columns: 1fr;
   }
 `;
