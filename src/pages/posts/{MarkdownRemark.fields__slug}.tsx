@@ -1,36 +1,16 @@
 import React from 'react'
 import { graphql, HeadProps, PageProps } from 'gatsby'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 import Post from '../../components/Post/Post'
 import Layout from '../../layout/Layout'
 import MetaHead from '../../components/MetaHead/MetaHead'
+import { IPagePost } from '../../Interface/IPagePost'
 
-interface QueryProps {
-  markdownRemark:{
-    fields: {
-      slug: string
-    },
-    __html: string,
-    frontmatter: {
-      authorImage: string,
-      title: string,
-      postAuthor: string,
-      date: string,
-      image: {
-        childImageSharp: {
-          gatsbyImageData: IGatsbyImageData
-        }
-      }
-    }
-  }
-}
-
-function PagePost({data} : PageProps<QueryProps>) {
+function PagePost({data} : PageProps<IPagePost>) {
   const {
     html,
     frontmatter: { authorImage, date, title, postAuthor, image },
-  } = (data as any).markdownRemark;
+  } = data.markdownRemark;
   return (
     <Layout>
       <Post data={{ html, authorImage, date, title, postAuthor, image }} />
@@ -64,9 +44,9 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head = ({ data }: HeadProps) => {
+export const Head = ({ data }: HeadProps<IPagePost>) => {
   const items = {
-    title: `${(data as any).markdownRemark.frontmatter.postAuthor} | ${(data as any).markdownRemark.frontmatter.title}`,
+    title: `${data.markdownRemark.frontmatter.postAuthor} | ${data.markdownRemark.frontmatter.title}`,
   }
   return (
     <MetaHead data={items}/>
