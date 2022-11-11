@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LayoutContainer = styled.div`
+export const LayoutContainer = styled.main`
   margin: 50px auto 0 auto;
   width: 1240px;
 
@@ -58,6 +58,7 @@ export const ButtomHeaderContainer = styled.div`
   width: 100%;
   position: fixed;
   height: 50px;
+  z-index: 10000;
 
   background-color: var(--W2);
 

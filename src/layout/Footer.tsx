@@ -7,7 +7,9 @@ interface IFooter {
 
 function Footer({ setLoading } : IFooter) {
   return (
-  <ContactForm setLoading={setLoading}/>    
+    <section>
+      <ContactForm setLoading={setLoading}/>    
+    </section>
   )
 }
 

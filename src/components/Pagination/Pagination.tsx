@@ -5,10 +5,12 @@ import * as S from './style'
 import { IPagination } from "./IPagination";
 
 export default function Pagination({ data } : { data : IPagination}) {
+
   const count = Array.from(
     { length: Math.ceil(data.pageCount) },
     (_, index) => index + 1
   )
+  
   return (
     <S.Container>
       {
@@ -18,7 +20,7 @@ export default function Pagination({ data } : { data : IPagination}) {
           }
           return (
             <Link
-              to={page === 1 ? "/pages/1" : `/pages/${page}`}
+              to={page === 1 ? "/" : `/pages/${page}`}
               key={page}
               title={`Ir para a página ${page}`}
             >

@@ -7,6 +7,7 @@ import * as S from './style'
 
 function Post({data} : {data : IPost}) {
   const image = data.image.childImageSharp.gatsbyImageData;
+  const date = new Date(data.date).toLocaleDateString('pt-BR').replaceAll('/', '-')
 
   return (
     <S.PostContainer>
@@ -23,7 +24,7 @@ function Post({data} : {data : IPost}) {
             {data.postAuthor}
           </h1>
           <S.Date>
-            {data.date}
+            {date}
           </S.Date>
         </S.ContentHeader>
         <S.ContentBody>

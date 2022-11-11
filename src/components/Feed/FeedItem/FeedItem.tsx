@@ -19,17 +19,24 @@ function FeedItem({ imageURL, title } : IFeedItem) {
 }
 
 const FeedContainer = styled.div`
+  height: calc(100% - 16px);
   .img-container {
     padding: 8px;
-    max-width: 200px;
-    max-height: 200px;
     width: calc(100% - 16px);
     height: calc(100% - 16px);
+    object-fit: cover;
 
-    > img {
+    >div {
+      min-height: 160px;
       width: 100%;
-      height: 100%;
-      border-radius: 4px;
+      height: inherit;
+      
+      > img {
+        min-height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+      }
     }
   }
 

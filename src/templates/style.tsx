@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
 
   > h2 {
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+    margin-bottom: -10px;
   }
 `;

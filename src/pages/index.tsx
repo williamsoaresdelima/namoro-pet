@@ -1,13 +1,22 @@
 import React from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadProps, PageProps } from "gatsby";
 import { IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
 import Layout from "../layout/Layout";
 import ProfileHeader from "../components/ProfileHeader/ProfileHeader";
 import Feed from "../components/Feed/Feed";
+import Pagination from "../components/Pagination/Pagination";
+import MetaHead from "../components/MetaHead/MetaHead";
 
 interface PropsTypes {
   allMarkdownRemark: {
+    pageInfo: {
+      totalCount: number,
+      currentPage: number,
+      pageCount: number,
+      hasNextPage: boolean,
+      hasPreviousPage: boolean,
+    },
     nodes: [
       fields: {
         slug: string,
@@ -53,8 +62,9 @@ interface INode {
     }
 }
 
-function Home({ data } : PageProps<any>) {
+function Home({ data } : PageProps<PropsTypes>) {
   const profileHeader = data.json;
+  const pagination = data.allMarkdownRemark.pageInfo;
   const items = data.allMarkdownRemark.nodes.map(
     ({ frontmatter, fields }: any) => ({
       ...frontmatter,
@@ -70,6 +80,7 @@ function Home({ data } : PageProps<any>) {
         />
       </div>
       <Feed data={{...items}} />
+      <Pagination data={pagination} />
     </Layout>
   );
 }
@@ -78,7 +89,17 @@ export default Home;
 
 export const pageQuerry = graphql`
 {
-  allMarkdownRemark(sort: {fields: frontmatter___feedImageURL})  {
+  allMarkdownRemark(
+    limit: 6
+    sort: { fields: frontmatter___date, order: DESC }
+  )  {
+    pageInfo {
+      totalCount
+      currentPage
+      pageCount
+      hasNextPage
+      hasPreviousPage
+    }
     nodes {
       fields {
         slug
@@ -108,3 +129,13 @@ export const pageQuerry = graphql`
   }
 }
 `
+
+export const Head = () => {
+  const items = {
+    title: `Namoro-Pet | Home`,
+    path: `/`,
+  }
+  return (
+    <MetaHead data={items}/>
+  );
+}

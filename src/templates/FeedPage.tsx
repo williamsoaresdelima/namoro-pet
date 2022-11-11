@@ -1,11 +1,12 @@
 import React from "react";
-import { PageProps, graphql } from "gatsby";
-import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { PageProps, graphql, HeadProps } from "gatsby";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 import * as S from './style'
 import  Feed  from "../components/Feed/Feed";
 import  Layout  from "../layout/Layout";
 import Pagination from "../components/Pagination/Pagination";
+import MetaHead from "../components/MetaHead/MetaHead";
 
 export default function FeedPage({ data }: PageProps<QueryProps>) {
   const pagination = (data as any).allMarkdownRemark.pageInfo;
@@ -20,7 +21,7 @@ export default function FeedPage({ data }: PageProps<QueryProps>) {
   return (
     <Layout>
       <S.Container>
-        <h2 className="title">
+        <h2>
           Página {pagination.currentPage} de {pagination.pageCount}
         </h2>
         <Feed data={items}/>
@@ -91,4 +92,15 @@ interface QueryProps {
       id: string
     }
   }
+}
+
+export const Head = ({ data }: HeadProps) => {
+  const { currentPage, pageCount } = (data as any).allMarkdownRemark.pageInfo;
+  const items = {
+    title: `Namoro-Pet | Página ${currentPage} de ${pageCount}`,
+    path: `/pages/${currentPage}`,
+  }
+  return (
+    <MetaHead data={items}/>
+  );
 }
