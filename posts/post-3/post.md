@@ -1,8 +1,8 @@
 ---
-title: "Ab est temporibus quia."
+title: "Gostaria de enfatizar "
 slug: "post-3"
 date: "2022-10-12T15:11:08.190Z"
-postAuthor: "madeline81"
+postAuthor: "Parandir"
 authorImage: "https://picsum.photos/300/200"
 image: "dog-3.jpg"
 ---
