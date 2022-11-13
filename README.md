@@ -1,54 +1,61 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+<h1 align="center">Welcome to Namoro Pet 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: UNLICENSED" src="https://img.shields.io/badge/License-UNLICENSED-yellow.svg" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
 
-## 🚀 Quick start
+> Gatsby site Namoro Pet
 
-1.  **Create a Gatsby site.**
+### 🏠 [Homepage](https://williamsoaresdelima.github.io/namoro-pet/)
+Este site foi desenvolvido para atender os requisitos do módulo de desenvolvimento de front-end jamstack com gatsby e fornece nessa primeira versão um site em gatsby com graphql e leitura de dados a partir de arquivos markdown.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+<br/>
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+## Prerequisites
 
-2.  **Start developing.**
+List things you need to use the software and how to install them.
+- ### [x] nodejs
 
-    Navigate into your new site’s directory and start it up.
+<br/>
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
 
-3.  **Open the code and start customizing!**
+## Install dependencies
 
-    Your site is now running at http://localhost:8000!
+```sh
+npm install
+```
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+## Run app
 
-4.  **Learn more**
+```sh
+npm run start
+```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+<h3 align="left">Languages ​​and tools used in the project:</h3>
+<p align="left"> 
+  <a href="https://www.gatsbyjs.com/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/gatsbyjs/gatsbyjs-icon.svg" alt="gatsby" width="40" height="40"/>
+  </a>
+  <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+  </a> 
+</p>
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+<br/>
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## Author
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+👤 **William soares**
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+* Website: https://www.linkedin.com/in/william-soares-de-lima-4ab619164
+* Github: [@williamsoaresdelima](https://github.com/williamsoaresdelima)
+* LinkedIn: [@William Soares](https://linkedin.com/in/William Soares)
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## 🤝 Contributing
 
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/williamsoaresdelima/namoro-pet/issues). 
